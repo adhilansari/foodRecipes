@@ -1,0 +1,139 @@
+<div class="flex flex-col items-center h-screen gap-2 overflow-y-auto">
+  <div class="flex items-center justify-around w-full p-4 bg-slate-200 ">
+    <div class="flex items-center justify-center ">
+      <h1 class="text-3xl font-Roboto">Food Book</h1>
+    </div>
+  </div>
+
+
+  <div class="flex flex-wrap justify-center p-6 mx-auto lg:px-12 font-Roboto">
+
+    <div class="flex items-center justify-center ring-1 rounded-[10rem]  mb-[1.5rem]">
+
+      <input type="search" ngModel (ngModelChange)="this.searchKey.next($event)"
+        class="border-none p-[1.2rem] text-[1.1rem] font-medium outline-none h-[3rem] w-[11rem] md:w-[22rem] text-gray-900 rounded-l-[10rem] bg-search"
+        placeholder="Search foods..." required>
+      <button type="submit"
+        class="text-slate-950 h-[3rem] w-[5rem] text-[1rem] rounded-r-[10rem] border-none bg-slate-200  outline-none hover:opacity-[0.8] cursor-pointer ">Search</button>
+    </div>
+
+
+    <div
+      class="flex flex-wrap items-center content-start justify-center w-full h-full gap-2 mx-auto scroll-mb-6 sm:gap-5 md:gap-9 ">
+      <div class="" *ngFor="let food of foods">
+        <!-- card -->
+        <section
+          class="flex flex-col overflow-hidden text-[#2D242] bg-gray-50  rounded-md shadow-xl min-w-full sm:min-w-fit sm:max-w-fit max-h-[385px] sm:min-h-[385px] hover:opacity-[0.9] " [routerLink]="['/food',food._links.self.href]">
+          <a>
+            <img alt="Placeholder"
+              class=" w-[16rem] h-[13rem] sm:min-w-[272px] sm:max-w-[272px] object-cover min-h-[195px] max-h-[195px] hover:ease-linear hover:scale-105"
+              src="{{ food.recipe.image}}" [alt]="food.recipe.label" />
+          </a>
+
+          <section
+            class="flex flex-col leading-tight p-2 bg-secondary_bg md:p-4  w-[16rem] h-[4rem] sm:min-w-[272px] sm:max-w-[272px] sm:min-h-[199px] max-h-[199px]">
+            <div class="flex items-center justify-between leading-tight">
+              <h1 class="text-lg h-14 line-clamp-2">
+                <a class="no-underline" href="#">
+                  {{ food.recipe.label }}
+                </a>
+              </h1>
+
+            </div>
+
+            <div
+              class=" left-[0.9rem] pb-[0.3rem] px-0 text-orange-600 text-[1.1rem] w-fit inline-block t  mr-[0.3rem] py-[0.2rem] ]">
+              <span> {{ food.recipe.totalDaily.ENERC_KCAL.quantity|number:'1.0-0' }} Cal</span>
+
+            </div>
+            <div
+              class=" left-[0.9rem] pb-[0.3rem] px-0 text-[#414141] text-[1.1rem] w-fit inline-block t  mr-[0.3rem] py-[0.2rem] ]">
+              <span> {{ food.recipe.mealType}}</span>
+            </div>
+            <div class="hidden sm:flex justify-between mt-[0.7rem] py-2 items-start">
+              <div
+                class="cook-time  w-fit rounded-[2rem] bg-slate-200 inline-block text-[0.9rem] text-gray-600 mr-[0.3rem] py-[0.2rem] px-[0.5rem]">
+                <span>🕐</span> {{ food.recipe.totalTime }} min
+              </div>
+              <div
+                class=" left-[0.9rem] pb-[0.3rem] px-0 text-[#414141] text-[1.1rem] w-fit inline-block t  mr-[0.3rem] py-[0.2rem] ]">
+                <span> {{ food.recipe.cuisineType}}</span>
+
+              </div>
+            </div>
+
+          </section>
+
+
+        </section>
+
+        <!-- END card -->
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="w-full pt-8 pb-6 font-Roboto bg-slate-900 text-slate-200">
+    <div class="container px-4 mx-auto">
+      <div class="flex flex-wrap text-left lg:text-left">
+        <div class="w-full px-4 lg:w-6/12 ">
+          <h4 class="text-3xl fonat-semibold text-blueGray-700">
+            Let's keep in touch!
+          </h4>
+          <h5 class="mt-0 mb-2 text-lg text-blueGray-600">
+            Find us on any of these platforms, we respond 1-2 business days.
+          </h5>
+          <div class="mt-6 mb-6 text-black lg:mb-0">
+            <button
+              class="items-center justify-center w-10 h-10 mr-2 font-normal bg-white rounded-full shadow-lg outline-none text-lightBlue-400 align-center focus:outline-none"
+              type="button">
+              <i class="fab fa-twitter"></i></button><button
+              class="items-center justify-center w-10 h-10 mr-2 font-normal bg-white rounded-full shadow-lg outline-none text-lightBlue-600 align-center focus:outline-none"
+              type="button">
+              <i class="fab fa-facebook-square"></i></button><button
+              class="items-center justify-center w-10 h-10 mr-2 font-normal bg-white rounded-full shadow-lg outline-none text-blueGray-800 align-center focus:outline-none"
+              type="button" onclick="location.href = 'https://github.com/adhilansari'">
+              <i class="fab fa-github"></i>
+            </button>
+          </div>
+        </div>
+        <div class="w-full px-4 lg:w-6/12">
+          <div class="flex flex-wrap mb-6 items-top">
+            <div class="w-full px-4 ml-auto lg:w-4/12">
+              <span class="block mb-2 text-sm font-semibold uppercase text-blueGray-500">Useful Links</span>
+              <ul class="list-unstyled">
+                <li>
+                  <a class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800" href="#">About
+                    Us</a>
+                </li>
+                <li>
+                  <a class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800"
+                    href="https://github.com/adhilansari">Github</a>
+                </li>
+              </ul>
+            </div>
+            <div class="w-full px-4 lg:w-4/12">
+              <span class="block mb-2 text-sm font-semibold uppercase text-blueGray-500">Other Resources</span>
+              <ul class="list-unstyled">
+
+                <li>
+                  <a class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800" href="#">Terms &
+                    Conditions</a>
+                </li>
+                <li>
+                  <a class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800" href="#">Privacy
+                    Policy</a>
+                </li>
+                <li>
+                  <a class="block pb-2 text-sm font-semibold text-blueGray-600 hover:text-blueGray-800" href="#">Contact
+                    Us</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+</div>
