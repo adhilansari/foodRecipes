@@ -5,14 +5,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import { FoodDetailComponent } from './components/food-detail/food-detail.component'
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import { FoodDetailComponent } from './components/food-detail/food-detail.component';
+import { LoadingComponent } from './components/loading/loading.component'
+import { LoadingInterceptor } from './loading.interceptor';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    FoodDetailComponent
+    FoodDetailComponent,
+    LoadingComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +25,9 @@ import { FoodDetailComponent } from './components/food-detail/food-detail.compon
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:LoadingInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -20,13 +20,19 @@ export class HomeComponent implements OnInit{
       })
   }
   ngOnInit(): void {
-    this.OnChanges('')
+    this.OnChanges('');
   }
   OnChanges(searchKey: string) {
 
     this.foodService.getSearchResult(searchKey).subscribe(val => {
       this.foods = val
+
     })
+
+
+  }
+  childEventHandler(event:any){
+    this.foods=event
 
   }
 
