@@ -5,8 +5,8 @@
 
       <div class="md:w-3/6 h-96 md:h-[750px] w-full backdrop-blur-lg bg-black/40 ">
         <div class="flex items-center justify-center h-full space-y-2">
-          <img class="object-cover  h-96 w-96 sm:w-[32rem] sm:h-[32rem] sm:rounded-full" loading="lazy" src="{{ food.recipe.image }}"
-            alt="" />
+          <img class="object-cover  h-96 w-96 sm:w-[32rem] sm:h-[32rem] sm:rounded-full" loading="lazy"
+            src="{{ food.recipe.image }}" alt="" />
         </div>
       </div>
 
@@ -23,12 +23,12 @@
             </p>
             <div class="flex items-center justify-start gap-2">
               <span class="my-4 text-base font-semibold w-fit">Cuisine type →</span>
-            <p *ngFor="let itemC of food.recipe.cuisineType"> {{itemC}}</p>
+              <p *ngFor="let itemC of food.recipe.cuisineType"> {{itemC}}</p>
             </div>
-           <div class="flex items-center justify-start gap-2">
-            <span class="my-4 text-base font-semibold w-fit">Meal type →</span>
-            <p>{{food.recipe.mealType[0]}}</p>
-           </div>
+            <div class="flex items-center justify-start gap-2">
+              <span class="my-4 text-base font-semibold w-fit">Meal type →</span>
+              <p>{{food.recipe.mealType[0]}}</p>
+            </div>
 
             <button class="mt-6">
               <a href="{{ food.recipe.url }}">How to Cook ? <span class="font-semibold text-blue-400">Click

@@ -28,8 +28,6 @@ export class HomeComponent implements OnInit{
       this.foods = val
 
     })
-
-
   }
   childEventHandler(event:any){
     this.foods=event

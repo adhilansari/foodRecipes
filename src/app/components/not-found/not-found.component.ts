@@ -15,6 +15,5 @@ export class NotFoundComponent {
     this.foodService.getSearchResult('').subscribe(val => {
       this.data.emit(val)
     })
-
   }
 }

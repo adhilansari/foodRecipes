@@ -4,8 +4,6 @@
       <h1 class="text-3xl font-Roboto">Food Book</h1>
     </div>
   </div>
-
-
   <div class="flex flex-wrap justify-center p-6 mx-auto lg:px-12 font-Roboto">
 
     <div class="flex items-center justify-center ring-1 rounded-[10rem]  mb-[1.5rem]">
@@ -16,14 +14,14 @@
       <button type="submit"
         class="text-slate-950 h-[3rem] w-[5rem] text-[1rem] rounded-r-[10rem] border-none bg-slate-200  outline-none hover:opacity-[0.8] cursor-pointer ">Search</button>
     </div>
-
-
     <div
-      class="flex flex-wrap items-center content-start justify-center w-full h-full gap-2 mx-auto scroll-mb-6 sm:gap-5 md:gap-9 " *ngIf="foods?.length">
+      class="flex flex-wrap items-center content-start justify-center w-full h-full gap-2 mx-auto scroll-mb-6 sm:gap-5 md:gap-9 "
+      *ngIf="foods?.length">
       <div class="" *ngFor="let food of foods">
         <!-- card -->
         <section
-          class="flex flex-col overflow-hidden text-[#2D242] bg-gray-50  rounded-md shadow-xl min-w-full sm:min-w-fit sm:max-w-fit max-h-[385px] sm:min-h-[385px] hover:opacity-[0.9] " [routerLink]="['/food',food._links.self.href]">
+          class="flex flex-col overflow-hidden text-[#2D242] bg-gray-50  rounded-md shadow-xl min-w-full sm:min-w-fit sm:max-w-fit max-h-[385px] sm:min-h-[385px] hover:opacity-[0.9] "
+          [routerLink]="['/food',food._links.self.href]">
           <a>
             <img alt="Placeholder" loading="lazy"
               class=" w-[16rem] h-[13rem] sm:min-w-[272px] sm:max-w-[272px] object-cover min-h-[195px] max-h-[195px] hover:ease-linear hover:scale-105"
@@ -63,7 +61,6 @@
             </div>
 
           </section>
-
 
         </section>
 
